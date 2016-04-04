@@ -13,7 +13,6 @@ scheduler = Rufus::Scheduler.new
 # 
 def send_message(message:)
 	client = Telebot::Client.new(TOKEN) 
-	# client.send_message(chat_id: '64342023', text: message )
 	client.send_message(chat_id: CHAT_ID, text: message )
 rescue 
 
@@ -43,7 +42,7 @@ end
 def check_urls(urls)
 	urls.each do |url|
 		result = url_exist(url)
-		p result
+		# send_message(message: "Result #{result}")
 		send_message(message: "Сайт #{url} недоступен. Код: #{result[:code]}") unless result[:status]
 		sleep(1)
 	end
