@@ -1,10 +1,10 @@
 require 'net/http'
 require 'telebot'
 require 'rufus-scheduler' 
-
-urls = File.foreach('sites.ignore.txt').map { |line| line.gsub("\n",'' )}
-TOKEN = File.open('bot_token.ignore.txt').read
-CHAT_ID = File.open('chat_id.ignore.txt').read
+path = '/home/flotbet/available/'
+urls = File.foreach(path+'sites.ignore.txt').map { |line| line.gsub("\n",'' )}
+TOKEN = File.open(path+'bot_token.ignore.txt').read
+CHAT_ID = File.open(path+'chat_id.ignore.txt').read
 
 
 scheduler = Rufus::Scheduler.new
